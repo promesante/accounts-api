@@ -1,0 +1,3 @@
+{:datomic
+ {:uri "datomic:mem://accounts"}
+ }
