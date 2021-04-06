@@ -1,7 +1,11 @@
-{:paths ["src" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.10.2"}}
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.2"}
+        com.datomic/datomic-free {:mvn/version "0.9.5697"}
+        mount/mount {:mvn/version "0.1.16"}}
  :aliases
- {:run-m {:main-opts ["-m" "accounts.accounts"]}
+ {:dev {:extra-paths ["dev"]
+        :extra-deps {org.clojure/tools.namespace {:mvn/version "1.1.0"}}}
+  :run-m {:main-opts ["-m" "accounts.accounts"]}
   :run-x {:ns-default accounts.accounts
           :exec-fn greet
           :exec-args {:name "Clojure"}}
