@@ -1,4 +1,4 @@
-(ns accounts.web.display
+(ns accounts.web.interceptors.display
   (:require [taoensso.timbre :as timbre :refer [info]]
             [accounts.web.base :as b]
             [accounts.db.queries :as q]))

@@ -4,8 +4,8 @@
             [mount.core :as mount :refer [defstate]]
             [taoensso.timbre :as timbre :refer [info]]
             [accounts.conf :refer [config]]
-            [accounts.web.base :as base]
-            [accounts.web.validate :as validate]
+            [accounts.web.interceptors.base :as base]
+            [accounts.web.interceptors.validate :as validate]
             ))
 
 (def account-detail-validation

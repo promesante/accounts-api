@@ -1,14 +1,6 @@
-(ns accounts.web.validate-test
+(ns accounts.web.interceptors.validate-test
   (:require [clojure.test :refer :all]
             [accounts.web.validate :refer :all]))
-
-(def
-          context-1 {:request {:path-params {:account-id "account-1"}}}
-  )
-
-(def
-          context-2 {:request {:path-params {}}}
-  )
 
 (deftest can-validate-account-id-available
   (testing "validate account id available"

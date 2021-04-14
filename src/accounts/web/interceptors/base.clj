@@ -1,4 +1,4 @@
-(ns accounts.web.base
+(ns accounts.web.interceptors.base
   (:require [io.pedestal.http.body-params :as body-params]
             [io.pedestal.http :as bootstrap]
             [io.pedestal.http :as http]))

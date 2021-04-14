@@ -1,4 +1,4 @@
-(ns accounts.web.validate
+(ns accounts.web.interceptors.validate
   (:require [io.pedestal.interceptor.chain :as chain]))
 
 (def account-id-available
