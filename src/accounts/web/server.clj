@@ -4,20 +4,11 @@
             [mount.core :as mount :refer [defstate]]
             [taoensso.timbre :as timbre :refer [info]]
             [accounts.conf :refer [config]]
-            [accounts.web.interceptors.base :as base]
-            [accounts.web.interceptors.validate :as validate]
+            [accounts.web.interceptors.sets :as s]
             ))
 
-(def account-detail-validation
-  [validate/account-id-available
-   ])
-
 (def routes
-  #{["/accounts/:account-id"
-     :get (into [] (concat base/common-interceptors
-                           account-detail-validation
-                           ))
-     :route-name :account-view]})
+  #{["/accounts/:account-id" :get s/account-view :route-name :account-view]})
 
 (defn service-map [conf]
   (let [port (get-in conf [:www :port])]

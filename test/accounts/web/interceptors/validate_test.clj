@@ -1,6 +1,6 @@
 (ns accounts.web.interceptors.validate-test
   (:require [clojure.test :refer :all]
-            [accounts.web.validate :refer :all]))
+            [accounts.web.interceptors.validate :refer :all]))
 
 (deftest can-validate-account-id-available
   (testing "validate account id available"
