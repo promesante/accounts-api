@@ -1,7 +1,5 @@
 (ns accounts.web.interceptors.display
-  (:require [taoensso.timbre :as timbre :refer [info]]
-            [accounts.web.base :as b]
-            [accounts.db.queries :as q]))
+  (:require [accounts.web.interceptors.base :as b]))
 
 (def entity-render
   {:name :entity-render
@@ -15,7 +13,6 @@
   {:name :account-view
    :leave
    (fn [context]
-     (info "account-view")
      (if-let [the-account (get-in context [:request :accounts :report])]
        (assoc context :result the-account)
        context))})
