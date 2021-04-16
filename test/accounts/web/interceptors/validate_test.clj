@@ -11,3 +11,15 @@
       (is (= context-1 ((:enter account-id-available) context-1)))
       (is (= {:status 400 :body "No account id supplied as path param in URL"}
              (:response ((:enter account-id-available) context-2)))))))
+
+(deftest can-validate-account-available
+  (testing "validate account available"
+    (let [
+          context-1 {:request {:accounts {:report #:account{:id "account-1", :balance 10000.0}}}
+                     :query-data {:report {:id "account-1"}}}
+          context-2 {:request {:accounts {:report #:account{:id "account-2", :balance 10000.0}}}
+                     :query-data {:report {:id "account-1"}}}
+          ]
+      (is (= context-1 ((:enter account-available-report) context-1)))
+      (is (= {:status 404 :body "No account available for id account-1 :report"}
+             (:response ((:enter account-available-report) context-2)))))))
