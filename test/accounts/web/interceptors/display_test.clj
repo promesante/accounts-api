@@ -2,12 +2,6 @@
   (:require [clojure.test :refer :all]
             [accounts.web.interceptors.display :refer :all]))
 
-(def context-1 {:request {:accounts {:report "account-1"}}}
-  )
-
-(def context-2 {:request {:accounts {:debit "account-1"}}}
-  )
-
 (deftest can-render-entity
   (testing "entity render"
     (let [context-in {:result {:field "value"}}
