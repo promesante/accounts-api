@@ -1,4 +1,4 @@
-(ns accounts.web.interceptors.sets.account-view
+(ns accounts.web.interceptors.routes.account-view
   (:require [accounts.web.interceptors.validate :as validate]
             [accounts.web.interceptors.prepare.retrieve :as prepare-retrieve]
             [accounts.web.interceptors.retrieve :as retrieve]
@@ -14,6 +14,6 @@
   [display/entity-render
    display/account-view])
 
-(def set
+(def interceptors
   (into [] (concat display
                    validate)))
