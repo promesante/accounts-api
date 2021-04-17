@@ -4,11 +4,10 @@
             [mount.core :as mount :refer [defstate]]
             [taoensso.timbre :as timbre :refer [info]]
             [accounts.conf :refer [config]]
-            [accounts.web.interceptors.sets :as s]
-            ))
+            [accounts.web.interceptors :as i]))
 
 (def routes
-  #{["/accounts/:account-id" :get s/account-view :route-name :account-view]})
+  #{["/accounts/:account-id" :get i/account-view :route-name :account-view]})
 
 (defn service-map [conf]
   (let [port (get-in conf [:www :port])]

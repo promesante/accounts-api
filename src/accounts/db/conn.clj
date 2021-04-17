@@ -12,7 +12,8 @@
 
 (defn disconnect [conf conn]
   (let [uri (get-in conf [:datomic :uri])]
-    (.release conn) ;; usually it's not released, here just to illustrate the access to connection on (stop)
+    ;; usually it's not released, here just to illustrate the access to connection on (stop)
+    (.release conn)
     (d/delete-database uri)))
 
 (defstate conn :start (new-connection config)

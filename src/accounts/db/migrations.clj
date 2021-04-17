@@ -78,68 +78,12 @@
     :transaction/id "trx-10"
     :transaction/amount 1000.00
     :transaction/description "thomas' present"
-    :transaction/balance 10000.00}
-   ])
+    :transaction/balance 10000.00}])
 
 (def sample-account-balance-updates-transfers
   [[:db/add [:account/id "account-1"] :account/balance 10000.00]
    [:db/add [:account/id "account-2"] :account/balance 20000.00]
    [:db/add [:account/id "account-3"] :account/balance 26000.00]])
-
-(def migration-batch
-  (into [] (concat sample-accounts
-                   sample-deposits
-                   sample-account-balance-updates-deposits
-                   sample-withdrawals
-                   sample-account-balance-updates-withdrawals
-                   sample-transfers
-                   sample-account-balance-updates-transfers
-                   ; sample-transfers-1
-                   ; sample-account-balance-updates-transfers-1
-                   ; sample-transfers-2
-                   ; sample-account-balance-updates-transfers-2
-                   )))
-
-(defn run-migrations [conn]
-  @(d/transact conn migration-batch))
-
-(comment
-  
-(def sample-transfers-1
-  [{:transaction/account-id [:account/id "account-3"]
-    :transaction/transfer-account-id [:account/id "account-2"]
-    :transaction/id "trx-7"
-    :transaction/amount -2000.00
-    :transaction/description "peter's present"
-    :transaction/balance 21000.00}
-   {:transaction/account-id [:account/id "account-2"]
-    :transaction/transfer-account-id [:account/id "account-3"]
-    :transaction/id "trx-8"
-    :transaction/amount 2000.00
-    :transaction/description "peter's present"
-    :transaction/balance 26000.00}])
-
-(def sample-account-balance-updates-transfers-1
-  [[:db/add [:account/id "account-2"] :account/balance 21000.00]
-   [:db/add [:account/id "account-3"] :account/balance 26000.00]])
-
-(def sample-transfers-2
-  [{:transaction/account-id [:account/id "account-2"]
-    :transaction/transfer-account-id [:account/id "account-1"]
-    :transaction/id "trx-9"
-    :transaction/amount -1000.00
-    :transaction/description "thomas' present"
-    :transaction/balance 20000.00}
-   {:transaction/account-id [:account/id "account-1"]
-    :transaction/transfer-account-id [:account/id "account-2"]
-    :transaction/id "trx-10"
-    :transaction/amount 1000.00
-    :transaction/description "thomas' present"
-    :transaction/balance 10000.00}])
-
-(def sample-account-balance-updates-transfers-2
-  [[:db/add [:account/id "account-1"] :account/balance 10000.00]
-   [:db/add [:account/id "account-2"] :account/balance 20000.00]])
 
 (defn run-migrations [conn]
   @(d/transact conn sample-accounts)
@@ -147,10 +91,5 @@
   @(d/transact conn sample-account-balance-updates-deposits)
   @(d/transact conn sample-withdrawals)
   @(d/transact conn sample-account-balance-updates-withdrawals)
-  @(d/transact conn sample-transfers-1)
-  @(d/transact conn sample-account-balance-updates-transfers-1)
-  @(d/transact conn sample-transfers-2)
-  @(d/transact conn sample-account-balance-updates-transfers-2)
-  )
-
-)
+  @(d/transact conn sample-transfers)
+  @(d/transact conn sample-account-balance-updates-transfers))
