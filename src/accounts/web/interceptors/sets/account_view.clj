@@ -13,3 +13,7 @@
 (def display
   [display/entity-render
    display/account-view])
+
+(def set
+  (into [] (concat display
+                   validate)))

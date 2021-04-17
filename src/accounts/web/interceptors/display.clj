@@ -10,9 +10,9 @@
        context))})
 
 (def account-view
-  {:name :account-view
+  {:name :display-account-view
    :leave
    (fn [context]
-     (if-let [the-account (get-in context [:request :accounts :report])]
+     (if-let [the-account (get-in context [:retrieved :accounts :report])]
        (assoc context :result the-account)
        context))})
