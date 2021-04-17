@@ -12,7 +12,7 @@
 
 (deftest can-account-view
   (testing "account view"
-    (let [context-1 {:request {:accounts {:report "account-1"}}}
-          context-2 {:request {:accounts {:debit "account-1"}}}]
+    (let [context-1 {:retrieved {:accounts {:report "account-1"}}}
+          context-2 {:retrieved {:accounts {:debit "account-1"}}}]
       (is (= "account-1" (:result ((:leave account-view) context-1))))
       (is (= context-2 ((:leave account-view) context-2))))))

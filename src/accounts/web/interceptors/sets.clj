@@ -4,5 +4,4 @@
 
 (def account-view
   (into [] (concat base/common-interceptors
-                   account-view/validate
-                   account-view/display)))
+                   account-view/set)))
