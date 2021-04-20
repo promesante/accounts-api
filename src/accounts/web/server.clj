@@ -7,7 +7,10 @@
             [accounts.web.interceptors :as i]))
 
 (def routes
-  #{["/accounts/:account-id" :get i/account-view :route-name :account-view]})
+  #{["/accounts/:account-id" :get i/account-view
+                             :route-name :account-view]
+    ["/accounts/:account-id/transactions" :get i/transactions-list
+                                          :route-name :transactions-list]})
 
 (defn service-map [conf]
   (let [port (get-in conf [:www :port])]

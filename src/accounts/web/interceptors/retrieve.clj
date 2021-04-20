@@ -11,3 +11,12 @@
 (def account-detail-report
   {:name :retrieve-account-detail-report
    :enter (account-detail :report)})
+
+(def transactions-list
+  {:name :retrieve-transactions-list
+   :enter
+   (fn [context]
+     (if-let [id (get-in context [:query-data :report :id])]
+       (let [txs (q/pull-transactions-by-account-id id)]
+         (assoc-in context [:retrieved :txs] txs))
+       context))})
