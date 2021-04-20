@@ -4,9 +4,10 @@
             [io.pedestal.http :as http]
             [io.pedestal.test :as test]
             [accounts.web.server :as server]
-            [accounts.db.conn :as c]
             [accounts.logging :as l]
-            [accounts.db.queries :as q]))
+            [accounts.db.conn :as c]
+            [accounts.db.queries :as q]
+            [accounts.db.transactions :as t]))
 
 (defn start []
   (do
