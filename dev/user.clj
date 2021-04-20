@@ -51,3 +51,6 @@
 
 (defn account-view []
   (test-request :get "/accounts/account-1"))
+
+(defn transaction-list []
+  (test-request :get "/accounts/account-1/transactions"))
