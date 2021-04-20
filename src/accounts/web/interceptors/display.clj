@@ -16,3 +16,11 @@
      (if-let [the-account (get-in context [:retrieved :accounts :report])]
        (assoc context :result the-account)
        context))})
+
+(def transactions-list
+  {:name :transactions-list
+   :leave
+   (fn [context]
+     (if-let [txs (get-in context [:retrieved :txs])]
+       (assoc context :result txs)
+       context))})
