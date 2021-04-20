@@ -18,7 +18,7 @@
        context))})
 
 (def transactions-list
-  {:name :transactions-list
+  {:name :display-transactions-list
    :leave
    (fn [context]
      (if-let [txs (get-in context [:retrieved :txs])]

@@ -14,4 +14,5 @@
    display/transactions-list])
 
 (def interceptors
-  (into [] (concat validate)))
+  (into [] (concat validate
+                   display)))
