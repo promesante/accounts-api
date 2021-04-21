@@ -9,8 +9,10 @@
 (def routes
   #{["/accounts/:account-id" :get i/account-view
                              :route-name :account-view]
-    ["/accounts/:account-id/transactions" :get i/transactions-list
-                                          :route-name :transactions-list]})
+    ["/accounts/:account-id/transactions" :get i/transaction-list
+                                          :route-name :transaction-list]
+    ["/accounts/:account-id/transactions" :post i/transaction-create
+                                          :route-name :transaction-create]})
 
 (defn service-map [conf]
   (let [port (get-in conf [:www :port])]
