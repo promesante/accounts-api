@@ -3,7 +3,9 @@
 
 (def validate
   [validate/json-params-available
-   validate/json-params-structure])
+   validate/json-params-structure
+   validate/account-id-available
+   validate/transfer-amount])
 
 (def interceptors
   (into [] (concat validate)))

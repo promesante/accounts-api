@@ -55,3 +55,16 @@
           (assoc context :response {:status 400
                                     :body (str "Wrong transaction structure: " params)})))
        context))})
+
+(def transfer-amount
+  {:name :validate-transfer-amount
+   :enter
+   (fn [context]
+     (if-let [transfer-account-id (get-in context [:request :json-params :account])]
+       (let [amount (get-in context [:request :json-params :amount])]
+         (if (< amount 0)
+           context
+           (chain/terminate
+            (assoc context :response {:status 400
+                                      :body "In a transfer, amount must be negative"}))))
+       context))})
