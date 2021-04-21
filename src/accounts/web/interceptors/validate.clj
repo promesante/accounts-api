@@ -1,5 +1,6 @@
 (ns accounts.web.interceptors.validate
-  (:require [io.pedestal.interceptor.chain :as chain]))
+  (:require [io.pedestal.interceptor.chain :as chain]
+            [malli.core :as m]))
 
 (def account-id-available
   {:name :validate-account-id-available
@@ -26,3 +27,31 @@
 (def account-available-report
   {:name :validate-account-available-report
    :enter (account-available :report)})
+
+(def json-params-available
+  {:name :validate-json-params
+   :enter
+   (fn [context]
+     (if-let [params (get-in context [:request :json-params])]
+       context
+       (chain/terminate
+        (assoc context :response {:status 400
+                                  :body "JSON body expected but not available"}))))})
+
+(def Transaction
+  [:map
+   [:amount double?]
+   [:description string?]
+   [:account {:optional true} string?]])
+
+(def json-params-structure
+  {:name :validate-json-params
+   :enter
+   (fn [context]
+     (if-let [params (get-in context [:request :json-params])]
+       (if (m/validate Transaction params)
+         context
+        (chain/terminate
+          (assoc context :response {:status 400
+                                    :body (str "Wrong transaction structure: " params)})))
+       context))})
