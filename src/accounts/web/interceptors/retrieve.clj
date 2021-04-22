@@ -12,6 +12,14 @@
   {:name :retrieve-account-detail-report
    :enter (account-detail :report)})
 
+(def account-detail-debit
+  {:name :retrieve-account-detail-debit
+   :enter (account-detail :debit)})
+
+(def account-detail-credit
+  {:name :retrieve-account-detail-credit
+   :enter (account-detail :credit)})
+
 (def transactions-list
   {:name :retrieve-transactions-list
    :enter
