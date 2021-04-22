@@ -15,10 +15,17 @@
     (let [context-1 {:retrieved {:accounts {:report #:account{:id "account-1", :balance 10000.0}}}
                      :query-data {:report {:id "account-1"}}}
           context-2 {:retrieved {:accounts {:report #:account{:id "account-2", :balance 10000.0}}}
-                     :query-data {:report {:id "account-1"}}}]
+                     :query-data {:report {:id "account-1"}}}
+          context-3 {:retrieved {:accounts {:debit #:account{:id "account-1", :balance 10000.0}}}
+                     :query-data {:debit {:id "account-1"}}}
+          context-4 {:retrieved {:accounts {:debit #:account{:id "account-2", :balance 10000.0}}}
+                     :query-data {:debit {:id "account-1"}}}]
       (is (= context-1 ((:enter account-available-report) context-1)))
       (is (= {:status 404 :body "No account available for id account-1 :report"}
-             (:response ((:enter account-available-report) context-2)))))))
+             (:response ((:enter account-available-report) context-2))))
+      (is (= context-3 ((:enter account-available-debit) context-3)))
+      (is (= {:status 404 :body "No account available for id account-1 :debit"}
+             (:response ((:enter account-available-debit) context-4)))))))
 
 (deftest can-validate-json-params-available
   (testing "validate json params available"
@@ -54,3 +61,13 @@
       (is (= context-1 ((:enter transfer-amount) context-1)))
       (is (= {:status 400 :body "In a transfer, amount must be negative"}
              (:response ((:enter transfer-amount) context-2)))))))
+
+(deftest can-validate-sufficient-funds
+  (testing "validate sufficient funds"
+    (let [context-1 {:request {:json-params {:amount -1000.0}}
+                     :retrieved {:accounts {:debit #:account{:id "account-1", :balance 2000.0}}}}
+          context-2 {:request {:json-params {:amount -2000.0}}
+                     :retrieved {:accounts {:debit #:account{:id "account-1", :balance 1000.0}}}}]
+      (is (= context-1 ((:enter sufficient-funds) context-1)))
+      (is (= {:status 500 :body "Insufficient funds in account"}
+             (:response ((:enter sufficient-funds) context-2)))))))
