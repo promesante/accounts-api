@@ -11,7 +11,10 @@
    prepare-retrieve/account-by-transaction
    prepare-retrieve/transfer-account
    retrieve/account-detail-debit
-   retrieve/account-detail-credit])
+   retrieve/account-detail-credit
+   validate/account-available-debit
+   validate/account-available-credit
+   validate/sufficient-funds])
 
 (def interceptors
   (into [] (concat validate)))

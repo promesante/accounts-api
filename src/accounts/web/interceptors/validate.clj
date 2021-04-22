@@ -28,6 +28,14 @@
   {:name :validate-account-available-report
    :enter (account-available :report)})
 
+(def account-available-debit
+  {:name :validate-account-available-debit
+   :enter (account-available :debit)})
+
+(def account-available-credit
+  {:name :validate-account-available-credit
+   :enter (account-available :credit)})
+
 (def json-params-available
   {:name :validate-json-params
    :enter
@@ -67,4 +75,24 @@
            (chain/terminate
             (assoc context :response {:status 400
                                       :body "In a transfer, amount must be negative"}))))
+       context))})
+
+(def sufficient-funds
+  {:name :validate-sufficient-funds
+   :enter
+   (fn [context]
+     ; account retrieved from datomis in previous retrieve interceptor
+     (if-let [account (get-in context [:retrieved :accounts :debit])]
+       (let [raw-amount (get-in context [:request :json-params :amount])
+             ; this validation should apply just in the context of detit transactions
+             ; hence, in the corresponding request, amount will come as a negative double
+             ; then, next line just switches its sign
+             ; so that it can then be compared with the account's current balance
+             amount (- 0 raw-amount)
+             balance (:account/balance account)]
+         (if (> balance amount)
+           context
+           (chain/terminate
+             (assoc context :response {:status 500
+                                       :body "Insufficient funds in account"}))))
        context))})
