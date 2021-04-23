@@ -2,7 +2,8 @@
   (:require [accounts.web.interceptors.validate :as validate]
             [accounts.web.interceptors.prepare.retrieve :as prepare-retrieve]
             [accounts.web.interceptors.prepare.update :as prepare-update]
-            [accounts.web.interceptors.retrieve :as retrieve]))
+            [accounts.web.interceptors.retrieve :as retrieve]
+            [accounts.web.interceptors.update :as update]))
 
 (def validate
   [validate/json-params-available
@@ -23,6 +24,13 @@
    prepare-update/new-transaction-debit
    prepare-update/new-transaction-credit])
 
+(def update
+  [update/update-balance-debit
+   update/update-balance-credit
+   update/new-transaction-debit
+   update/new-transaction-credit])
+
 (def interceptors
   (into [] (concat validate
-                   prepare)))
+                   prepare
+                   update)))
