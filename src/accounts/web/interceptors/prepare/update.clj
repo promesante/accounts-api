@@ -46,10 +46,10 @@
   {:name :prepare-new-transaction-credit
    :enter (new-transaction :credit)})
 
-(defn record-transfer [type]
+(defn new-transfer [type]
   (fn [context]
     (if-let [account-id-json (get-in context [:request :json-params :account])]
-      (if-let [account (get-in context [:request :accounts type])]
+      (if-let [account (get-in context [:retrieved :accounts type])]
         (let [account-id-path (get-in context [:request :path-params :account-id])
               description (get-in context [:request :json-params :description])
               raw-amount (get-in context [:request :json-params :amount])
@@ -63,10 +63,10 @@
         context)
       context)))
 
-(def record-debit-transfer
-  {:name :record-debit-transaction
-   :enter (record-transfer :debit)})
+(def new-transfer-debit
+  {:name :prepare-new-transfer-debit
+   :enter (new-transfer :debit)})
 
-(def record-credit-transfer
-  {:name :record-debit-transaction
-   :enter (record-transfer :credit)})
+(def new-transfer-credit
+  {:name :prepare-new-transfer-credit
+   :enter (new-transfer :credit)})
