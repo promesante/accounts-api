@@ -37,7 +37,7 @@
    :enter (account-available :credit)})
 
 (def json-params-available
-  {:name :validate-json-params
+  {:name :validate-json-params-available
    :enter
    (fn [context]
      (if-let [params (get-in context [:request :json-params])]
@@ -53,7 +53,7 @@
    [:account {:optional true} string?]])
 
 (def json-params-structure
-  {:name :validate-json-params
+  {:name :validate-json-params-structure
    :enter
    (fn [context]
      (if-let [params (get-in context [:request :json-params])]
