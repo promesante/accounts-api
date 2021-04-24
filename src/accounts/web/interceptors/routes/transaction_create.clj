@@ -3,7 +3,13 @@
             [accounts.web.interceptors.prepare.retrieve :as prepare-retrieve]
             [accounts.web.interceptors.prepare.update :as prepare-update]
             [accounts.web.interceptors.retrieve :as retrieve]
-            [accounts.web.interceptors.update :as update]))
+            [accounts.web.interceptors.update :as update]
+            [accounts.web.interceptors.display :as display]))
+
+(def display
+  [display/entity-render
+   display/transaction-created-debit
+   display/transaction-created-credit])
 
 (def validate
   [validate/json-params-available
