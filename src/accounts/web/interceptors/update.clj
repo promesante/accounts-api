@@ -22,17 +22,10 @@
 (defn new-transaction [type]
   (fn [context]
     (if-let [tx-data (get-in context [:tx-data type])]
-      (let [{:keys [account-id tx]} tx-data
-            ; account-id (:id tx-data)
-            ; tx (:tx tx-data)
-            {:keys [amount description transfer-account-id balance]} tx
-            ; amount (:amount tx)
-            ; description (:description tx)
-            ; transfer-account-id (:account-id tx)
-            ; balance (:balance tx)
-            ]
+      (let [{:keys [id tx]} tx-data
+            {:keys [amount description transfer-account-id balance]} tx]
         (do
-          (t/new-transaction account-id amount description balance transfer-account-id)
+          (t/new-transaction id amount description balance transfer-account-id)
           context))
       context)))
 

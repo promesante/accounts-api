@@ -55,3 +55,24 @@
 
 (defn transaction-list []
   (test-request :get "/accounts/account-1/transactions"))
+
+(defn deposit-1 []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-1/transactions" :headers {"Content-Type" "application/json"} :body "{\"amount\": 2000.0, \"description\": \"second deposit\"}"))
+
+(defn deposit-2 []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-2/transactions" :headers {"Content-Type" "application/json"} :body "{\"amount\": 2000.0, \"description\": \"second deposit\"}"))
+
+(defn withdrawal []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-1/transactions" :headers {"Content-Type" "application/json"} :body "{\"amount\": -1000.0, \"description\": \"appartment rent - march 2021\"}"))
+
+(defn withdrawal-excess []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-1/transactions" :headers {"Content-Type" "application/json"} :body "{\"amount\": -21000.0, \"description\": \"appartment rent - march 2021\"}"))
+
+(defn transfer []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-1/transactions" :headers {"Content-Type" "application/json"} :body "{\"amount\": -1000.0, \"account\": \"account-2\", \"description\": \"anne's present\"}"))
+
+(defn deposit-int-amount []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-1/transactions" :headers {"Content-Type" "application/json"} :body "{\"amount\": 2000, \"description\": \"second deposit\"}"))
+
+(defn deposit-no-amount []
+  (test/response-for (::http/service-fn server/server) :post "/accounts/account-1/transactions" :headers {"Content-Type" "application/json"} :body "{\"description\": \"second deposit\"}"))
