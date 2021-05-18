@@ -1,7 +1,9 @@
 {:paths ["src"]
  :deps {org.clojure/clojure {:mvn/version "1.10.2"}
         com.datomic/datomic-free {:mvn/version "0.9.5697"}
-        mount/mount {:mvn/version "0.1.16"}}
+        mount/mount {:mvn/version "0.1.16"}
+        io.pedestal/pedestal.service {:mvn/version "0.5.8"}
+        io.pedestal/pedestal.jetty {:mvn/version "0.5.8"}}
  :aliases
  {:dev {:extra-paths ["dev"]
         :extra-deps {org.clojure/tools.namespace {:mvn/version "1.1.0"}}}
