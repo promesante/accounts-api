@@ -1,16 +1,15 @@
+# Clojure REPL Driven Development (RDD) #
 
-Clojure REPL Driven Development (RDD)
+## Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic ##
 
-Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic
-
-getting first hand experience in Clojure REPL driven development (RDD)
+### Getting first hand experience in Clojure REPL driven development (RDD) ###
 
 In order to get a tutorial like Duct's Guide mentioned above, but for a project based on mount instead of integrant, I have built an API similar to the one shown in mount's tutorial and example: the [accounts API of a toy digital bank](https://github.com/promesante/accounts-api). And this post will show how its implementation evolved, step by step, in a typical RDD way.
 
 Instead of explaining each of those steps here, in the post series, we have kept track of them by means of git branches and [pull requests](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed), and then depict here just what, in our opinion, wouldn't be clear enough by just taking a look at each of those PRs.
 
 
-# Endpoints
+## Endpoints ##
 
 For this first version of the API, we will implement de following endpoints:
 
@@ -55,14 +54,14 @@ Transfer:
 ```
 
 
-# Application Structure
+## Application Structure ##
 
 Each of those endpoints will hold the following two modules:
 1. `db`: Datomic database management
 2. `web`: REST API; mainly, Pedestal interceptors
 
 
-# Implementation Strategy and Post Series Structure
+## Implementation Strategy and Post Series Structure ##
 
 The aspects exposed in the previous two sections, **Endpoints**, and **Application Structure**, will determine this post series' structure, as well as the implementation path exposed below, along [pull request](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed) sequence, in the following iterative approch:
 
@@ -85,7 +84,7 @@ Among these parts of the series, the most **important** one is [part 3]({% post_
 But before beginning those steps, let's tackle initial project setup which, due to its very own nature, is not reflected in any PR.
 
 
-# Initial Project Setup
+## Initial Project Setup ##
 
 We will use [clj-new](https://github.com/seancorfield/clj-new): we need to add the following alias inside your `:aliases` map in  `~/.clojure/deps.edn`:
 
@@ -107,7 +106,7 @@ $ clojure -X:new :name accounts/accounts
 We are thus ready to begin coding.
 
 
-# References
+## References ##
 
 We will take as reference the following articles. Each of them has been an excellent tutorial for me, for its corresponding tool below. So, if you don't have experience in any of them, I'd suggest to read them before going on with this series, as it assumes that level of understanding about each:
 
@@ -121,7 +120,7 @@ We will take as reference the following articles. Each of them has been an excel
 	* [Datomic Missing Link Tutorial](https://github.com/ftravers/datomic-tutorial)
 
 
-# Example Usage
+## Example Usage ##
 
 We will:
 2. **deposit** U$S 2,000 into `account-1`
