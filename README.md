@@ -20,6 +20,7 @@ For this first version of the API, we will implement de following endpoints:
 2. **transaction list**, `GET /accounts/:account-id/transactions`: list of transactions already performed on the account with the `account-id` set
 3. **transaction create**, `POST /accounts/:account-id`: creating (executing) a transaction on the account with the `account-id` set;
 
+We have implemented the following transactions:
 Types of transactions:
 
 1. **deposit**: positive `amount`, no `account` (attribute exclusive for transfers)
@@ -82,14 +83,11 @@ The aspects exposed in the previous two sections, **Endpoints**, and **Applicati
 	2. web
 	3. end-to-end testing
 
-Among these parts of the series, the most **important** one is [part 3]({% post_url 2021-04-28-clojure_repl_driven_development_part_3 %}), **1.4, RDD session demo**, as it actually fulfills the most the whole series goal: **getting first hand experience in Clojure REPL driven development (RDD)**.
-
-But before beginning those steps, let's tackle initial project setup which, due to its very own nature, is not reflected in any PR.
-
+Among these parts of the series, the most **important** one is [part 3](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_3.html), **1.4, RDD session demo**, as it actually fulfills the most the whole series goal: **getting first hand experience in Clojure REPL driven development (RDD)**.
 
 ## References ##
 
-We will take as reference the following articles. Each of them has been an excellent tutorial for me, for its corresponding tool below. So, if you don't have experience in any of them, I'd suggest to read them before going on with this series, as it assumes that level of understanding about each:
+We have taken as reference the following articles.
 
 * **Emacs Setup**: [My Optimal GNU Emacs Settings for Developing Clojure (Revised)](http://fgiasson.com/blog/index.php/2016/06/14/my-optimal-gnu-emacs-settings-for-developing-clojure-revised/)
 * **Mount**: [project README](https://github.com/tolitius/mount#mount-and-develop)
@@ -100,10 +98,11 @@ We will take as reference the following articles. Each of them has been an excel
     * [Datomic Official Tutorial](https://docs.datomic.com/on-prem/tutorial/introduction.html)
 	* [Datomic Missing Link Tutorial](https://github.com/ftravers/datomic-tutorial)
 
+Each of them has been an excellent tutorial for me, for its corresponding tool above. Hence, if you don't have experience in any of them, I'd suggest to read them before going on with this series, as we assume that level of understanding about each.
 
 ## Setup ##
 
-We will use [clj-new](https://github.com/seancorfield/clj-new): we need to add the following alias inside your `:aliases` map in  `~/.clojure/deps.edn`:
+We have used [clj-new](https://github.com/seancorfield/clj-new): we need to add the following alias inside your `:aliases` map in  `~/.clojure/deps.edn`:
 
 ```clojure
     ;; add this inside your :aliases map:
@@ -126,7 +125,7 @@ We are thus ready to begin coding.
 
 The part which deserves explanation are Pedestal Interceptors:
 1. its organization and
-2. data structure deviced 
+2. data structure deviced to handle data, to store data in, or take it from, making it flow step by step along the interceptor chain bound to every endpoint
 
 ### Interceptor Organization ###
 
@@ -138,7 +137,7 @@ As suggested in Pedestal documentation, we embraced interceptors as much as poss
 2. **prepare** (**retrieve** or **update**) data for each of the corresponding operations just mentioned
 4. **display** data in `response` as the result of the interceptor chain execution
 
-We will now explain interceptors bound to the **transaction create** endpoint. As it has associated much more than the other endpoints, we will list and briefly describe them below.
+We will now explain interceptors bound to the **transaction create** endpoint in particular, as it has associated much more than the other endpoints; we will list and briefly describe them below:
 
 #### Validate ####
 
@@ -165,7 +164,7 @@ Each of these two entities is taken from data structures's `:tx-data` entry, and
 
 #### Display ####
 
-Transaction just created is left in data structures's `:result` in order to have it ready for the `entity-render` interceptor to set it in `response`.
+Transaction just created is bound to data structures's `:result` key in order to have it ready for the `entity-render` interceptor to set it in `response`.
 
 
 ### Data Structure ###
