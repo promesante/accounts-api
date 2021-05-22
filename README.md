@@ -187,7 +187,7 @@ The following is an example of this data structure:
    :result {#:account{:id "account-1", :balance 10000.0}}}
 ```
 
-This data structure might be built by the end of the execution of the interceptor chain bound to this endpoint: **account view**.
+This data structure might be built by the end of the execution of the interceptor chain bound to **account view** endpoint.
 
 Regarding interceptor data structure depicted in [part 2]({% post_url 2021-04-28-clojure_repl_driven_development_part_2 %}), the following one is an example, built by this endpoint's interceptor chain. It is basically the same as the one shown in [part 2]({% post_url 2021-04-28-clojure_repl_driven_development_part_2 %}). The only difference is the key inside `:retrieved` data got from the database is bound to:` :txs`.
 
