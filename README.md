@@ -58,14 +58,14 @@ Negative `amount`, setting target account's id in `account`
 
 ## Application Structure ##
 
-Each of those endpoints listed above will hold the following two modules:
+Each of the **endpoints** listed above will hold the following two modules:
 1. `db`: Datomic database management
 2. `web`: REST API; mainly, Pedestal interceptors
 
 
 ## Implementation Strategy and Post Series Structure ##
 
-The aspects exposed in the previous two sections, **Endpoints**, and **Application Structure**, will determine this post series' structure, as well as the implementation path exposed below, along [pull request](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed) sequence, in the following iterative approch:
+The aspects exposed above in sections **Endpoints** and **Application Structure** will determine post series' structure, as well as the implementation path exposed below, along [pull request](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed) sequence, in the following iterative approch:
 
 1. **account view**: [part 2](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_2.html) of this series
     1. database
