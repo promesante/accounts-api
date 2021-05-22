@@ -58,7 +58,7 @@ Negative `amount`, setting target account's id in `account`
 
 ## Application Structure ##
 
-Each of those endpoints will hold the following two modules:
+Each of those endpoints listed above will hold the following two modules:
 1. `db`: Datomic database management
 2. `web`: REST API; mainly, Pedestal interceptors
 
