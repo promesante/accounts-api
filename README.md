@@ -141,7 +141,7 @@ We will now explain interceptors bound to the **transaction create** endpoint in
 
 We may group them the following way:
 
-* [validating HTTP request params](https://github.com/promesante/accounts-api/pull/11/files): as this endpoint is the first HTTP POST, this validation interceptors target its request JSON body
+* [validating HTTP request params](https://github.com/promesante/accounts-api/pull/11/files): as this endpoint is the first `HTTP POST`, this validation interceptors target its request `JSON` body
 * [retrieving accounts for its validation](https://github.com/promesante/accounts-api/pull/12)
 * [validating accounts](https://github.com/promesante/accounts-api/pull/13): 
     * whether they are actually available
@@ -158,7 +158,7 @@ These interceptors prepare the following entities:
 
 #### Update ####
 
-Each of these two entities is taken from data structures's `:tx-data` entry, and then transacted against our Datomic database.
+Each of the two entities just mentioned is taken from data structures's `:tx-data` entry, and then transacted against our Datomic database.
 
 #### Display ####
 
