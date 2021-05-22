@@ -141,7 +141,6 @@ As suggested in Pedestal documentation, we embraced interceptors as much as poss
 
 We will now explain interceptors bound to this endpoint. As it has associated  much more than the other endpoints, we will list and briefly describe them below.
 
----
 ### Validation ###
 
 We may group them the following way:
@@ -152,7 +151,6 @@ We may group them the following way:
     * whether they are actually available
 	* in the case of executing a debit transaction against it, whether it has sufficient funds
 
----
 ### Update Preparation ###
 
 In these interceptors, data is prepared to be handled in the following interceptor set, `update`, in which they will be transacted against our Datomic database. Then, it will be left in data structure's `:tx-data` field.
@@ -162,12 +160,10 @@ These interceptors prepare the following entities:
 * account's **new balance**
 * **new transaction** is deviced
 
----
 ### Update ###
 
 Each of these two entities is taken from data structures's `:tx-data` entry, and then transacted against our Datomic database.
 
----
 ### Display ###
 
 Transaction just created is left in data structures's `:result` in order to have it ready for the `entity-render` interceptor to set it in `response`.
