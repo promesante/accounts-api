@@ -353,7 +353,7 @@ It is basically the same as for the previous endpoint.
 
 ### Transaction Create ###
 
-As this endpoint is substantially larger and more complex, we will give a brief overview about it.
+As this endpoint is substantially larger and more complex than the rest explained above, we will give a brief overview about it.
 
 #### Transaction ####
 
