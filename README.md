@@ -6,6 +6,8 @@
 
 Project exposed in my [blog](https://promesante.github.io/), in the [Clojure REPL Driven Development - Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) post series.
 
+## Overview ##
+
 One of the best articles I happened to have read on RDD, and on reloaded workflows in particular, is the [Guide to the Duct Framework](https://github.com/duct-framework/docs/blob/master/GUIDE.rst), which shows a demo of a reloaded workflow in a strictly practical fashion, building a REST API from the ground up, and showing step-by-step the whole path. This approach is particularly illuminating for getting a first hand experience in RDD.
 
 In order to get a tutorial like that, but for a project based on [mount](https://github.com/tolitius/mount) instead of [integrant](https://github.com/weavejester/integrant), I have built this API, similar to the one shown in mount's tutorial and example, and explained in the [post series](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) mentioned above how its implementation evolved, step by step, in a typical RDD way.
