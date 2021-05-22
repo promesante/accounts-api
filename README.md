@@ -139,7 +139,7 @@ As suggested in Pedestal documentation, we embraced interceptors as much as poss
 2. **prepare** (**retrieve** or **update**) data for each of the corresponding operations just mentioned
 4. **display** data in `response` as the result of the interceptor chain execution
 
-We will now explain interceptors bound to this endpoint. As it has associated  much more than the other endpoints, we will list and briefly describe them below.
+We will now explain interceptors bound to the **transaction create** endpoint. As it has associated much more than the other endpoints, we will list and briefly describe them below.
 
 ### Validate ###
 
