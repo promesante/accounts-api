@@ -20,13 +20,9 @@ In order to get a tutorial like that, but for a project based on [mount](https:/
 
 ## Transactions ##
 
-1. **deposit**: positive `amount`, no `account` (attribute exclusive for transfers)
-1. **withdrawal**: negative `amount`
-1. **transfer**: negative `amount`, setting target account's id in `account`
+Described below, along an example of the `JSON` body accompanying the corresponding `HTTP POST` for each one:
 
-Examples:
-
-Deposit:
+### Deposit ###
 
 ```json
 {
@@ -35,7 +31,9 @@ Deposit:
 }
 ```
 
-Withdrawal:
+Positive `amount`, no `account` (attribute exclusive for transfers)
+
+### Withdrawal ###
 
 ```json
 {
@@ -44,7 +42,9 @@ Withdrawal:
 }
 ```
 
-Transfer:
+Negative `amount`
+
+### Transfer ###
 
 ```json
 {
@@ -54,6 +54,7 @@ Transfer:
 }
 ```
 
+Negative `amount`, setting target account's id in `account`
 
 ## Application Structure ##
 
