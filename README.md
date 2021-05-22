@@ -56,7 +56,7 @@ Among these parts of the series, the most **important** one is [part 3](https://
     * [Datomic Official Tutorial](https://docs.datomic.com/on-prem/tutorial/introduction.html)
 	* [Datomic Missing Link Tutorial](https://github.com/ftravers/datomic-tutorial)
 
-Each of them has been an excellent tutorial for me, for its corresponding tool above. Hence, if you don't have experience in any of them, I'd suggest to read them before reading the post series, as we assume that level of understanding about each.
+Each of these articles has been an excellent tutorial for me, for its corresponding tool above. Hence, if you don't have experience in any of them, I'd suggest to read them before reading the post series, as we assume that level of understanding about each.
 
 ## Setup ##
 
