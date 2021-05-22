@@ -406,6 +406,7 @@ To actually handle each of these transactions, several interceptors has two vers
 #### RDD Session ####
 
 We will:
+
 2. **deposit** U$S 2,000 into `account-1`
 3. **withdraw** U$S 1,000 from it
 4. **transfer** U$S 1,000 from `account-1` to `account-2`
