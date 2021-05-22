@@ -69,16 +69,16 @@ Each of those endpoints will hold the following two modules:
 
 The aspects exposed in the previous two sections, **Endpoints**, and **Application Structure**, will determine this post series' structure, as well as the implementation path exposed below, along [pull request](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed) sequence, in the following iterative approch:
 
-1. **account view**: [part 2]({% post_url 2021-04-28-clojure_repl_driven_development_part_2 %}) of this series
+1. **account view**: [part 2](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_2.html) of this series
     1. database
 	2. web
 	3. end-to-end testing
-	4. **RDD session demo**: [part 3]({% post_url 2021-04-28-clojure_repl_driven_development_part_3 %})
-2. **transaction list**: [part 4]({% post_url 2021-04-28-clojure_repl_driven_development_part_4 %})
+	4. **RDD session demo**: [part 3](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_3.html)
+2. **transaction list**: [part 4](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_4.html)
     1. database
 	2. web
 	3. end-to-end testing
-3. **transaction create**: [part 5]({% post_url 2021-04-28-clojure_repl_driven_development_part_5 %})
+3. **transaction create**: [part 5](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_5.html)
     1. database
 	2. web
 	3. end-to-end testing
