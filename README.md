@@ -47,8 +47,6 @@ Among these parts of the series, the most **important** one is [part 3](https://
 
 ## References ##
 
-We have taken as reference the following articles.
-
 * **Emacs Setup**: [My Optimal GNU Emacs Settings for Developing Clojure (Revised)](http://fgiasson.com/blog/index.php/2016/06/14/my-optimal-gnu-emacs-settings-for-developing-clojure-revised/)
 * **Mount**: [project README](https://github.com/tolitius/mount#mount-and-develop)
 * **Pedestal**:
