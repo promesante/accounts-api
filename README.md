@@ -16,7 +16,7 @@ In order to get a tutorial like that, but for a project based on [mount](https:/
 
 1. **account view**, `GET /accounts/:account-id`: details of the single account with the `account-id` set
 2. **transaction list**, `GET /accounts/:account-id/transactions`: list of transactions already performed on the account with the `account-id` set
-3. **transaction create**, `POST /accounts/:account-id`: creating (executing) a transaction on the account with the `account-id` set;
+3. **transaction create**, `POST /accounts/:account-id`: creating (executing) a transaction on the account with the `account-id` set
 
 ## Application Structure ##
 
@@ -27,7 +27,7 @@ Each of the **endpoints** listed above will hold the following two modules:
 
 ## Implementation Strategy and Post Series Structure ##
 
-The aspects exposed above in sections **Endpoints** and **Application Structure** will determine post series' structure, as well as the implementation path exposed below, along [pull request](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed) sequence, in the following iterative approch:
+The aspects just exposed in the previous two sections, **Endpoints** and **Application Structure**, will determine post series' structure, as well as the implementation path exposed below, along [pull request](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed) sequence, in the following iterative approch:
 
 1. **account view**: [part 2](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_2.html) of this series
     1. database
