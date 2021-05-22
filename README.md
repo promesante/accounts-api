@@ -6,9 +6,9 @@
 
 Project exposed in my [blog](https://promesante.github.io/), in the [Clojure REPL Driven Development - Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) post series.
 
-One of the best articles I happened to read on RDD, and on reloaded workflows in particular, is the [Guide to the Duct Framework](https://github.com/duct-framework/docs/blob/master/GUIDE.rst), which shows a demo of a reloaded workflow in a strictly practical fashion, building a REST API from the ground up, and showing step-by-step the whole path. This approach is particularly illuminating for getting a first hand experience in RDD.
+One of the best articles I happened to have read on RDD, and on reloaded workflows in particular, is the [Guide to the Duct Framework](https://github.com/duct-framework/docs/blob/master/GUIDE.rst), which shows a demo of a reloaded workflow in a strictly practical fashion, building a REST API from the ground up, and showing step-by-step the whole path. This approach is particularly illuminating for getting a first hand experience in RDD.
 
-In order to get a tutorial like Duct's Guide mentioned above, but for a project based on mount instead of integrant, I have built an API similar to the one shown in mount's tutorial and example: the [accounts API of a toy digital bank](https://github.com/promesante/accounts-api). And this post will show how its implementation evolved, step by step, in a typical RDD way.
+In order to get a tutorial like that, but for a project based on mount instead of integrant, I have built an API similar to the one shown in mount's tutorial and example: the [accounts API of a toy digital bank](https://github.com/promesante/accounts-api). And this post will show how its implementation evolved, step by step, in a typical RDD way.
 
 Instead of explaining each of those steps here, in the post series, we have kept track of them by means of git branches and [pull requests](https://github.com/promesante/accounts-api/pulls?q=is%3Apr+is%3Aclosed), and then depict here just what, in our opinion, wouldn't be clear enough by just taking a look at each of those PRs.
 
