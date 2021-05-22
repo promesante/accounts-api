@@ -124,8 +124,8 @@ We are thus ready to begin coding.
 ## Implementation ##
 
 The part which deserves explanation are Pedestal Interceptors:
-1. its organization and
-2. data structure deviced to handle data, to store data in, or take it from, making it flow step by step along the interceptor chain bound to every endpoint
+1. its **organization** and
+2. **data structure** deviced to handle data, to store data in, or take it from, making it flow step by step along the interceptor chain bound to every endpoint
 
 ### Interceptor Organization ###
 
@@ -176,7 +176,9 @@ To handle data, making it flow step by step along the interceptor chain bound to
 3. `:retrieved`: `retrieve` interceptors store retrieved data here
 4. `:result`: `display` interceptors store data here in order to have it ready for the `entity-render` interceptor to set it in `response`
 
-The following is an example of this data structure:
+The following are examples of this data structure for each endpoint, along with the corresponding post series part:
+
+**account view**: [part 2](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_2.html)
 
 ```clojure
   {:request {:path-params {:account-id "account-1"}}
@@ -185,9 +187,7 @@ The following is an example of this data structure:
    :result {#:account{:id "account-1", :balance 10000.0}}}
 ```
 
-This data structure might be built by the end of the execution of the interceptor chain bound to **account view** endpoint.
-
-Regarding interceptor data structure depicted in [part 2]({% post_url 2021-04-28-clojure_repl_driven_development_part_2 %}), the following one is an example, built by this endpoint's interceptor chain. It is basically the same as the one shown in [part 2]({% post_url 2021-04-28-clojure_repl_driven_development_part_2 %}). The only difference is the key inside `:retrieved` data got from the database is bound to:` :txs`.
+**transaction list**: [part 4](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_4.html)
 
 ```clojure
   {:request {:path-params {:account-id "account-1"}}
@@ -228,8 +228,9 @@ Regarding interceptor data structure depicted in [part 2]({% post_url 2021-04-28
       :transaction/description "first deposit",
       :transaction/balance 10000.0})}
 ```
+The only difference is the key inside `:retrieved` data got from the database is bound to:` :txs`.
 
-The only key new in this endpoint is `:tx-data`: `prepare-update` interceptors leave data there, "prepared" for `update` interceptors to actually run the corresponding Datomic transaction:
+**transaction create**: [part 5](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_5.html)
 
 ```clojure
   {:request
@@ -244,6 +245,8 @@ The only key new in this endpoint is `:tx-data`: `prepare-update` interceptors l
      :tx {:amount 1000.0 :description "test" :balance 11000.0}}}
    :result {:amount 1000.0 :description "test" :balance 11000.0}}
 ```
+
+The only key new in this endpoint is `:tx-data`: `prepare-update` interceptors leave data there, "prepared" for `update` interceptors to actually run the corresponding Datomic transaction:
 
 
 ## Usage ##
