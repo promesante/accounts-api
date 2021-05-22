@@ -141,7 +141,7 @@ As suggested in Pedestal documentation, we embraced interceptors as much as poss
 
 We will now explain interceptors bound to this endpoint. As it has associated  much more than the other endpoints, we will list and briefly describe them below.
 
-### Validation ###
+### Validate ###
 
 We may group them the following way:
 
