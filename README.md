@@ -353,11 +353,9 @@ It is basically the same as for the previous endpoint.
 
 ### Transaction Create ###
 
-As this endpoint is substantially larger and more complex than the rest explained above, we will give a brief overview about it.
+As this endpoint is substantially larger and more complex than the rest explained above, we will give a brief overview about it. It is handled by means of an `HTTP POST`. We deviced its `JSON` body structure according to transaction type. In all of them, amount must be a `double`.
 
-#### Transaction ####
-
-It is handled by means of an `HTTP POST`. We deviced its `JSON` body structure according to transaction type. In all of them, amount must be a `double`.
+#### Transactions ####
 
 ##### Deposit #####
 
