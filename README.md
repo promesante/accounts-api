@@ -283,11 +283,11 @@ user>
 
 #### Web ####
 
-This e2e testing session will begin and end in exactly the same way as our previous one on the last interceptor set, branch `account-detail-db`.
+This session will begin and end in exactly the same way as our previous one..
 
 Functionality added in this interceptor set can be tested with:
 1. `response-for` function from `io.pedestal.test` namespace, wrapped in our own util function, `test-request`
-2. in order to type a bit less in this task, that we will have to run quite repetitively, we can wrap it in our own function, `account-view`, in our `user` namespace, which has basically that purpose: holding development utils.
+2. in order to type a bit less in this task, that we will have to run quite repetitively, we can wrap it in our own function, `account-view`, in our `user` namespace, which has basically that purpose: holding development utils
 
 ```clojure
 accounts.web.interceptors.validate-test> 
@@ -335,11 +335,9 @@ user>
 
 ### Transaction List ###
 
-We show below the session for e2e testing for this endpoint:
-1. running the Datomic query
-2. invoking the endpoint, by means of `response-for` function from `io.pedestal.test` namespace, wrapped in our own util function, `test-request` and then wrapped in turn in `transaction-list`
-
-It is basically the same as for the previous endpoint.
+We will:
+1. run the Datomic query
+2. invoke the endpoint by means of `response-for` function from `io.pedestal.test` namespace, wrapped in our own util function, `test-request` and then wrapped in turn in `transaction-list`
 
 ```clojure
 user> (start)
@@ -391,9 +389,9 @@ user> (stop)
 user> 
 ```
 
-### Transaction Create ###
+It is basically the same as for the previous endpoint.
 
-Going on implementing our toy digital bank, as an attempt to **get first hand experience in Clojure REPL driven development (RDD)**, we will now tackle its last endpoint: **transaction create**.
+### Transaction Create ###
 
 It is handled by means of an HTTP POST. We deviced its JSON body structure according to transaction type. In all of them, amount must be a `double`.
 
@@ -430,6 +428,7 @@ Examples:
   "description": "appartment rent - march 2021"
 }
 ```
+
 Although in this body there is no explicit indication on transation type, each of them can be distinguished by the following criteria:
 * if `:account` attribute is present, transaction is a `transfer`; otherwise, it is a `deposit` or `withdrawal`
 * single difference between `deposit` and `withdrawal` takes place just in its `amount` sign: positive for `deposits`, and viceversa
@@ -440,18 +439,12 @@ To actually handle each of these transactions, several interceptors has two vers
 * **credit**: when money is put into an account
 * **debit**: when it is taken from it
 
-
-
-
-
-
 We will:
 2. **deposit** U$S 2,000 into `account-1`
 3. **withdraw** U$S 1,000 from it
 4. **transfer** U$S 1,000 from `account-1` to `account-2`
 
 Immediately before and after each of these transactions, we query database on each account involved in the transaction as well as that account's transaction log.
-
 
 ```clojure
 user> (start)
