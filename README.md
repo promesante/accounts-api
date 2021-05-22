@@ -4,7 +4,7 @@
 
 ### Getting first hand experience in Clojure REPL driven development (RDD) ###
 
-Project exposed in my [blog](https://promesante.github.io/), in the [Clojure REPL Driven Development - Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) post series.
+Project exposed in my [blog](https://promesante.github.io/), in its [Clojure REPL Driven Development - Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) post series.
 
 ## Overview ##
 
