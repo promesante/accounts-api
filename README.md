@@ -18,44 +18,6 @@ In order to get a tutorial like that, but for a project based on [mount](https:/
 2. **transaction list**, `GET /accounts/:account-id/transactions`: list of transactions already performed on the account with the `account-id` set
 3. **transaction create**, `POST /accounts/:account-id`: creating (executing) a transaction on the account with the `account-id` set;
 
-## Transactions ##
-
-Described below, along an example of the `JSON` body accompanying the corresponding `HTTP POST` for each one:
-
-### Deposit ###
-
-```json
-{
-  "amount": 1000.00,
-  "description": "appartment rent - march 2021"
-}
-```
-
-Positive `amount`, no `account` (attribute exclusive for transfers)
-
-### Withdrawal ###
-
-```json
-{
-  "amount": -1000.00,
-  "description": "appartment rent - march 2021"
-}
-```
-
-Negative `amount`
-
-### Transfer ###
-
-```json
-{
-  "amount": -1000.00,
-  "account": "account-1",
-  "description": "appartment rent - march 2021"
-}
-```
-
-Negative `amount`, setting target account's id in `account`
-
 ## Application Structure ##
 
 Each of the **endpoints** listed above will hold the following two modules:
@@ -244,7 +206,7 @@ The only difference is the key inside `:retrieved` data got from the database is
    :result {:amount 1000.0 :description "test" :balance 11000.0}}
 ```
 
-The only key new in this endpoint is `:tx-data`: `prepare-update` interceptors leave data there, "prepared" for `update` interceptors to actually run the corresponding Datomic transaction:
+The only key new in this endpoint is `:tx-data`: `prepare-update` interceptors leave data there, "prepared" for `update` interceptors to actually run the corresponding Datomic transaction.
 
 
 ## Usage ##
@@ -391,15 +353,13 @@ It is basically the same as for the previous endpoint.
 
 ### Transaction Create ###
 
-It is handled by means of an HTTP POST. We deviced its JSON body structure according to transaction type. In all of them, amount must be a `double`.
+As this endpoint is substantially larger and more complex, we will give a brief overview about it.
 
-1. **deposit**: positive `amount`, no `account` (attribute exclusive for transfers)
-1. **withdrawal**: negative `amount`
-1. **transfer**: negative `amount`, setting target account's id in `account`
+#### Transaction ####
 
-Examples:
+It is handled by means of an `HTTP POST`. We deviced its `JSON` body structure according to transaction type. In all of them, amount must be a `double`.
 
-**Deposit**
+##### Deposit #####
 
 ```json
 {
@@ -408,7 +368,9 @@ Examples:
 }
 ```
 
-**Withdrawal**
+Positive `amount`, no `account` (attribute exclusive for transfers)
+
+##### Withdrawal #####
 
 ```json
 {
@@ -417,7 +379,9 @@ Examples:
 }
 ```
 
-**Transfer**
+Negative `amount`
+
+##### Transfer #####
 
 ```json
 {
@@ -427,7 +391,11 @@ Examples:
 }
 ```
 
-Although in this body there is no explicit indication on transation type, each of them can be distinguished by the following criteria:
+Negative `amount`, setting target account's id in `account`
+
+#### Observations ####
+
+Although in each body there is no explicit indication on transation type, each of them can be distinguished by the following criteria:
 * if `:account` attribute is present, transaction is a `transfer`; otherwise, it is a `deposit` or `withdrawal`
 * single difference between `deposit` and `withdrawal` takes place just in its `amount` sign: positive for `deposits`, and viceversa
 
@@ -436,6 +404,8 @@ Although in this body there is no explicit indication on transation type, each o
 To actually handle each of these transactions, several interceptors has two versions, carrying the following sufixes, usually delegating its actual implementation into a common function, with `type` as the identifying parameter:
 * **credit**: when money is put into an account
 * **debit**: when it is taken from it
+
+#### RDD Session ####
 
 We will:
 2. **deposit** U$S 2,000 into `account-1`
