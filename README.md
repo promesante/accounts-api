@@ -347,7 +347,7 @@ user> (stop)
 user> 
 ```
 
-It is basically the same as for the previous endpoint.
+This RDD session is basically the same as for the previous endpoint.
 
 ### Transaction Create ###
 
