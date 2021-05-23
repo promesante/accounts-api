@@ -111,7 +111,7 @@ We may group them the following way:
 
 In these interceptors, data is prepared to be handled in the following interceptor set, `update`, in which they will be transacted against our Datomic database. Then, it will be left in data structure's `:tx-data` field.
 
-These interceptors prepare the following entities:
+They prepare the following entities:
 
 * account's **new balance**
 * **new transaction** is deviced
