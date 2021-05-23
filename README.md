@@ -398,8 +398,8 @@ Although in each body there is no explicit indication on transation type, each o
 `transfer` transactions are basically splitted into a `deposit` into the target account, and a `withdrawal` from the source one.
 
 To actually handle each of these transactions, several interceptors has two versions, carrying the following sufixes, usually delegating its actual implementation into a common function, with `type` as the identifying parameter:
-* **credit**: when money is put into an account
-* **debit**: when it is taken from it
+* `credit`: when money is put into an account
+* `debit`: when it is taken from it
 
 #### RDD Session ####
 
