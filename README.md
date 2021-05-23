@@ -364,7 +364,7 @@ As this endpoint is substantially larger and more complex than the rest explaine
 }
 ```
 
-Positive `amount`, no `account` (attribute exclusive for transfers)
+Positive `amount`, no `account` (attribute exclusive for `transfers`)
 
 ##### Withdrawal #####
 
