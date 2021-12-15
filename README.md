@@ -4,11 +4,11 @@
 
 Project exposed in my [blog](https://promesante.github.io/), in its [Clojure REPL Driven Development - Building a Toy Digital Bank with Emacs, Mount, Pedestal and Datomic](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) post series, with the following purpose:
 
-**Getting first hand experience in Clojure REPL driven development (RDD)**
+**Getting hands-on experience in Clojure REPL driven development (RDD)**
 
 ## Overview ##
 
-The [Guide to the Duct Framework](https://github.com/duct-framework/docs/blob/master/GUIDE.rst) goes well beyond the scope suggested by its title: it is one of the best articles I happened to have read on Clojure RDD, and on reloaded workflows in particular. It shows a demo of a reloaded workflow in a strictly practical fashion, building a REST API from the ground up, and showing step-by-step its whole implementation path. This approach is particularly illuminating for getting a first hand experience in RDD.
+The [Guide to the Duct Framework](https://github.com/duct-framework/docs/blob/master/GUIDE.rst) goes well beyond the scope suggested by its title: it is one of the best articles I happened to have read on Clojure RDD, and on reloaded workflows in particular. It shows a demo of a reloaded workflow in a strictly practical fashion, building a REST API from the ground up, and showing step-by-step its whole implementation path. This approach is particularly illuminating for getting hands-on experience in RDD.
 
 In order to get a tutorial like that, but for a project based on [mount](https://github.com/tolitius/mount) instead of [integrant](https://github.com/weavejester/integrant), I have built this API, similar to the [example](https://github.com/tolitius/mount/tree/master/dev/clj/app) supplied with mount, and explained in mount's official [tutorial](https://github.com/tolitius/mount#mount-and-develop), explaining how its implementation evolved, step by step, in a typical RDD way, in my [blog](https://promesante.github.io/), in its [post series](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_1.html) mentioned above.
 
@@ -43,7 +43,7 @@ The aspects just exposed in the previous two sections, **Endpoints** and **Appli
 	2. web
 	3. end-to-end testing
 
-Among these parts of the series, the most **important** one is [part 3](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_3.html), **1.4, RDD session demo**, as it actually fulfills the most the whole series goal: **getting first hand experience in Clojure REPL driven development (RDD)**.
+Among these parts of the series, the most **important** one is [part 3](https://promesante.github.io/2021/04/28/clojure_repl_driven_development_part_3.html), **1.4, RDD session demo**, as it actually fulfills the most the whole series goal: **getting hands-on experience in Clojure REPL driven development (RDD)**.
 
 ## References ##
 
